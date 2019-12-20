@@ -7,10 +7,13 @@ import javax.enterprise.event.Observes
 @ApplicationScoped
 open class App {
 
-    open fun print(@Observes event: StartupEvent) {
-        println("""
-            Application startup detected: $event
-        """.trimIndent())
+    open fun appStartup(@Observes event: StartupEvent) {
+        println("ENVironment specific to ID:")
+        System.getenv().forEach { (k, v) ->
+            if (k.startsWith("ID_")) {
+                println("   $k: $v")
+            }
+        }
     }
 
 }

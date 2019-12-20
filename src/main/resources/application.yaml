@@ -1,0 +1,21 @@
+# Configuration file
+# key = value
+
+quarkus:
+  log:
+    console:
+      level: "DEBUG"
+
+  smallrye-jwt:
+    enabled: "true"
+
+  http:
+    cors: "true"
+      origins: "http://localhost:4200"
+
+mp:
+  jwt:
+    verify:
+      publickey:
+        location: "http://localhost:8080/keys/public"
+

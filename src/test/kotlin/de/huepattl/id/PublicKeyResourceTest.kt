@@ -18,7 +18,7 @@ open class PublicKeyResourceTest {
                 .`when`().get("/keys/public")
                 .then()
                 .statusCode(200)
-                .body(`is`(StringStartsWith(true,"-----BEGIN PUBLIC KEY-----")))
+                .body(`is`(StringStartsWith(true, "-----BEGIN PUBLIC KEY-----")))
     }
 
 }
