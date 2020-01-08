@@ -18,7 +18,7 @@ import javax.ws.rs.core.SecurityContext
 @Path("/ping")
 @RequestScoped
 @Produces(MediaType.TEXT_PLAIN)
-open class InformationResource {
+class InformationResource {
 
     @Inject
     var jwt: JsonWebToken? = null

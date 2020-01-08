@@ -2,6 +2,7 @@ package de.huepattl.id
 
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import java.io.File
+import javax.enterprise.context.RequestScoped
 import javax.inject.Inject
 import javax.ws.rs.GET
 import javax.ws.rs.Path
@@ -13,6 +14,7 @@ import javax.ws.rs.core.MediaType
  * the URL o this resource can be set for 'mp.jwt.verify.publickey.location' in Quarkus.io applications.
  */
 @Path("/keys/public")
+@RequestScoped
 class PublicKeyResource {
 
     /**
@@ -21,8 +23,8 @@ class PublicKeyResource {
      * @see /support/dev/generate-certificates.sh
      */
     @Inject
-    @ConfigProperty(name = "ID_PUBLIC_KEY")
-    var publicKeyLocation: String? = null
+    @ConfigProperty(name = "id.public-key.file")
+    lateinit var publicKeyLocation: String
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

@@ -14,7 +14,7 @@ data class User(val id: String = UUID.randomUUID().toString(), val name: String 
 @Path("/user")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
-open class UserResource {
+class UserResource {
 
     @GET
     @RolesAllowed("admin")

@@ -16,14 +16,13 @@ data class Login(val user: String = "", val password: String = "")
 
 @Path("/authentication")
 @RequestScoped
-open class AuthenticationResource {
+class AuthenticationResource {
 
     val log: Logger = Logger.getLogger(this::class.qualifiedName)
 
-    //@Inject
-    //@ConfigProperty(name = "ID_PRIVATE_KEY")
-    //lateinit var privateKeyLocation: String
-    var privateKeyLocation: String = "/Users/blazko/Development/id/id-2/src/test/resources/private.key"
+    @Inject
+    @ConfigProperty(name = "id.private-key.file")
+    lateinit var privateKeyLocation: String
 
     /**
      * Returns authentication token if credentials were valid.

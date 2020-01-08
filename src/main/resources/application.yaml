@@ -1,6 +1,13 @@
 # Configuration file
 # key = value
 
+id:
+  private-key:
+    file: src/main/resources/private.key
+
+  public-key:
+    file: src/main/resources/public.key
+
 quarkus:
   log:
     console:
@@ -11,11 +18,12 @@ quarkus:
 
   http:
     cors: "true"
-      origins: "http://localhost:4200"
+    origins: "http://localhost:4200"
 
 mp:
   jwt:
     verify:
       publickey:
-        location: "http://localhost:8080/keys/public"
+        #location: "http://localhost:8080/keys/public"
+        location: public.key
 
