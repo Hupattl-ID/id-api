@@ -5,7 +5,7 @@ import javax.enterprise.context.ApplicationScoped
 import javax.enterprise.event.Observes
 
 @ApplicationScoped
-class App {
+open class App {
 
     open fun appStartup(@Observes event: StartupEvent) {
         println("ENVironment specific to ID:")
